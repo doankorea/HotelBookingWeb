@@ -59,8 +59,8 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a action="/Rooms">Rooms</a></li>
+                <li class="active"><a href="/Home/Index">Home</a></li>
+                <li><a href="/Rooms/Room">Rooms</a></li>
                 <li><a href="./about-us.html">About Us</a></li>
                 <li>
                     <a href="./pages.html">Pages</a>
@@ -100,26 +100,33 @@
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <div class="tn-right">
-                            <div class="top-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                        <div class="tn-right d-flex align-items-center justify-content-between">
+                            <div class="top-social me-3">
+                                <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" aria-label="Tripadvisor"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
-                            <div class="language-option">
-                                <img src="/img/flag.jpg" alt="">
-                                <span>EN <i class="fa fa-angle-down"></i></span>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>
-                                    </ul>
+
+                            <div class="d-flex align-items-center">
+                                
+                                <a href="#" class="bk-btn me-3">Booking Now</a>
+
+                                <div class="language-option">
+                                    <img src="/img/flag.jpg" alt="Language flag">
+                                    <span>EN <i class="fa fa-angle-down"></i></span>
+                                    <div class="flag-dropdown">
+                                        <ul>
+                                            <li><a href="#">Zi</a></li>
+                                            <li><a href="#">Fr</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
+                                <a class="nav-link me-3" asp-controller="Access" asp-action="LogIn">Log In</a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -128,7 +135,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="admin/homeadmin/room">
+                            <a href="/Home/Index">
                                 <img  src="/img/logo.png" alt="">
                             </a>
                         </div>
@@ -137,20 +144,10 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
-                                    <li><a href="./about-us.html">About Us</a></li>
-                                    <li>
-                                        <a href="./pages.html">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog.html">News</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
+                                    <li class="nav-link" data-menu="home"><a href="/Home/Index">Home</a></li>
+                                    <li class="nav-link" data-menu="rooms"><a href="/Rooms/Room">Rooms</a></li>
+                                    <li class="nav-link" data-menu="aboutus"><a href="/Home/AboutUs">About Us</a></li>
+                                    <li class="nav-link" data-menu="contact"><a href="/Home/Contact">Contact</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -298,3 +295,30 @@
 </body>
 
 </html>
+<script>
+    // Lưu trạng thái của liên kết đã chọn
+    const links = document.querySelectorAll('.nav-link');
+    const activeMenu = localStorage.getItem('activeMenu');
+
+    // Nếu có activeMenu, thiết lập class active cho liên kết tương ứng
+    if (activeMenu) {
+        const activeLink = document.querySelector(`[data-menu="${activeMenu}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+
+    links.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            // Xóa class active từ tất cả các liên kết
+            links.forEach((link) => link.classList.remove('active'));
+
+            // Thêm class active cho liên kết đang được nhấp
+            link.classList.add('active');
+
+            // Lưu menu đã chọn vào localStorage
+            const menu = link.getAttribute('data-menu');
+            localStorage.setItem('activeMenu', menu);
+        });
+    });
+</script>

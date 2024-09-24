@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Payment Callback";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="container">
+    <h1 class="text-center">Payment Status</h1>
+
+    <div class="alert alert-@(ViewBag.Message == "Success" ? "success" : "danger") text-center">
+        <strong>@ViewBag.Message</strong>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="card mt-4">
+            <div class="card-header">
+                Reservation Details
+            </div>
+            <div class="card-body">
+                <p><strong>Reservation ID:</strong> @Model.Id</p>
+                <p><strong>Status:</strong> @Model.Status</p>
+                <p><strong>Check-in Date:</strong> @Model.CheckInDate?.ToString("dd/MM/yyyy")</p>
+                <p><strong>Check-out Date:</strong> @Model.CheckOutDate?.ToString("dd/MM/yyyy")</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-danger">No reservation details available.</p>
+    }
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>

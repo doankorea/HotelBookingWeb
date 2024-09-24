@@ -1,0 +1,47 @@
+﻿﻿@{
+    ViewData["Title"] = "Payment";
+    Layout = "Layout";
+
+}
+@model Room
+<div class="table-responsive">
+    <form action="/Home/CreatePaymentUrl" id="frmCreateOrder" method="POST">
+
+        <label for="Amount">Room Name</label>
+        <div class="form-group">
+            <label for="ordertype"></label>
+            <select name="OrderType" id="ordertype" class="form-control">
+                <option value="electric">@Model.RoomName</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="Name">Tên khách hàng</label>
+            <input class="form-control"
+                   id="Name"
+                   name="Name"
+                   type="text"
+                   value="@ViewBag.userName">
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="Amount">Số tiền</label>
+            <input class="form-control"
+                   id="Amount"
+                   name="Amount"
+                   type="text"
+                   value="@Model.Price">
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="OrderDescription">Nội dung thanh toán</label>
+            <textarea class="form-control"
+                      cols="20"
+                      id="OrderDescription"
+                      name="OrderDescription"
+                      rows="2">Thanh toán</textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" name="ReservationId" asp-controller="Home" asp-action="CreatePaymentUrl" value="@ViewBag.ReservationID">Thanh toán (Checkout)</button>
+    </form>
+</div>

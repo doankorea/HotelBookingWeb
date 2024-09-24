@@ -617,6 +617,522 @@
       "PackagePath": "staticwebassets\\LayoutAdmin\\screenshot.jpg"
     },
     {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\css\\style.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\css\\style.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\about-1.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\about-1.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\about-2.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\about-2.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\about-3.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\about-3.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\about-4.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\about-4.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\carousel-1.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\carousel-1.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\carousel-2.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\carousel-2.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\room-1.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\room-1.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\room-2.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\room-2.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\room-3.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\room-3.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\team-1.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\team-1.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\team-2.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\team-2.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\team-3.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\team-3.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\team-4.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\team-4.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\testimonial-1.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\testimonial-1.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\testimonial-2.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\testimonial-2.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\testimonial-3.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\testimonial-3.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\testimonial-4.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\testimonial-4.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\img\\video.jpg",
+      "PackagePath": "staticwebassets\\LayoutBooking\\img\\video.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\js\\main.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\js\\main.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\animate\\animate.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\animate\\animate.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\animate\\animate.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\animate\\animate.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\counterup\\counterup.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\counterup\\counterup.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\js\\moment-timezone.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\js\\moment-timezone.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\js\\moment.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\wow\\wow.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\wow\\wow.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\lib\\wow\\wow.min.js",
+      "PackagePath": "staticwebassets\\LayoutBooking\\lib\\wow\\wow.min.js"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_accordion.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_accordion.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_alert.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_alert.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_badge.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_badge.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_breadcrumb.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_breadcrumb.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_button-group.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_button-group.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_buttons.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_card.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_card.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_carousel.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_carousel.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_close.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_close.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_containers.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_containers.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_dropdown.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_dropdown.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_forms.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_forms.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_functions.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_functions.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_grid.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_grid.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_helpers.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_helpers.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_images.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_images.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_list-group.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_mixins.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_modal.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_modal.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_nav.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_nav.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_navbar.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_navbar.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_offcanvas.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_offcanvas.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_pagination.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_popover.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_popover.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_progress.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_progress.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_reboot.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_reboot.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_root.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_root.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_spinners.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_spinners.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_tables.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_tables.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_toasts.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_toasts.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_tooltip.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_transitions.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_transitions.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_type.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_type.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_utilities.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\_variables.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-grid.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-reboot.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap-utilities.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\bootstrap.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-check.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-control.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-range.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-select.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_form-text.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_input-group.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_labels.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_labels.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_validation.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\forms\\_validation.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_position.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_position.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_ratio.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_alert.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_caret.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_container.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_container.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_gradients.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_grid.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_image.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_image.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_list-group.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_lists.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_pagination.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_resize.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_transition.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_utilities.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\utilities\\_api.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\utilities\\_api.scss"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\LayoutBooking\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "PackagePath": "staticwebassets\\LayoutBooking\\scss\\bootstrap\\scss\\vendor\\_rfs.scss"
+    },
+    {
       "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\Source\\Flaticon.zip",
       "PackagePath": "staticwebassets\\Source\\Flaticon.zip"
     },
@@ -1051,6 +1567,18 @@
     {
       "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\img\\play.png",
       "PackagePath": "staticwebassets\\img\\play.png"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\img\\room\\09e8d2382aa7d1132964542bf9b133a6.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\09e8d2382aa7d1132964542bf9b133a6.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\img\\room\\457017910_829313709344420_3823858557246145111_n.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\457017910_829313709344420_3823858557246145111_n.jpg"
+    },
+    {
+      "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\img\\room\\4c217720-7cc3-4678-814c-1ce765e1210d.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\4c217720-7cc3-4678-814c-1ce765e1210d.jpg"
     },
     {
       "Id": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\wwwroot\\img\\room\\avatar\\avatar-1.jpg",

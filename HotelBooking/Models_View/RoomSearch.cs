@@ -9,6 +9,7 @@
         public string StateName { get; set; }
         public string Image { get; set; }
 
+        public string HotelName { get; set; }
 
     }
 }

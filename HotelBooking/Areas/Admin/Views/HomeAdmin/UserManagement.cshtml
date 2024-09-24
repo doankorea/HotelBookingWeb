@@ -1,0 +1,72 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HotelBooking.Models.User>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "User Management";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>@ViewData["Title"]</h1>
+
+        <p>
+            <a class="btn btn-primary" asp-action="AddnewUser">Create New User</a>
+        </p>
+
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Email</th>
+                    <th>PasswordHash</th>
+                    <th>Role</th>
+                    <th>CreatedAt</th>
+                    <th>IsActive</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PasswordHash)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Role)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-action="EditUser" asp-route-UserID="@item.UserId">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-Userid="@item.UserId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                @Html.PagedListPager(Model, page => Url.Action("User", new { page }),
+                         new PagedListRenderOptions
+                {
+                    LiElementClasses = new List<string> { "page-item" },
+                    PageClasses = new List<string> { "page-link" },
+                    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                    DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                    LinkToPreviousPageFormat = "« Previous",
+                    LinkToNextPageFormat = "Next »",
+                    MaximumPageNumbersToDisplay = 5,
+                    UlElementClasses = new[] { "pagination" }
+                })
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

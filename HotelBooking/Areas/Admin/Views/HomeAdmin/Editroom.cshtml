@@ -9,49 +9,56 @@
 <h1>Editroom</h1>
 
 <h4>Room</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-action="Editroom">
+    <div class="col-md-6">
+        <form method="post" asp-action="AddNewRoom" enctype="multipart/form-data">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="RoomId" />
+
             <div class="form-group">
-                <label asp-for="RoomName" class="control-label"></label>
-                <input asp-for="RoomName" class="form-control" />
+                <label asp-for="RoomName" class="control-label">Room Name</label>
+                <input asp-for="RoomName" class="form-control" placeholder="Enter room name" />
                 <span asp-validation-for="RoomName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="RoomTypeId" class="control-label"></label>
-                <select asp-for="RoomTypeId" class="form-control" asp-items="ViewBag.RoomTypeId"></select>
+                <label asp-for="RoomTypeId" class="control-label">Room Type</label>
+                <select asp-for="RoomTypeId" class="form-control" asp-items="ViewBag.RoomTypes">
+                    <option value="">Select Room Type</option>
+                </select>
                 <span asp-validation-for="RoomTypeId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <label asp-for="Price" class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" type="number" step="1" placeholder="Enter price" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <label asp-for="Status" class="control-label">Status</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Under Maintenance">Under Maintenance</option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
+                <label asp-for="Image" class="control-label">Room Image</label>
+                <input type="file" asp-for="Image" class="form-control" name="imageFile" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CountryId" class="control-label"></label>
-                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+                <label asp-for="CountryId" class="control-label">Country</label>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Countries">
+                    <option value="">Select Country</option>
+                </select>
                 <span asp-validation-for="CountryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

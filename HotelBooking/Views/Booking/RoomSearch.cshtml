@@ -1,0 +1,80 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "Layout";
+}
+
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HotelBooking.Models_View.RoomSearch>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!-- Rooms Section Begin -->
+<section class="rooms-section spad">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Take(3))
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="@Url.Content("~/img/room/" + item.Image)" alt="@item.RoomName">
+                        <div class="ri-text">
+                            <h3>@item.RoomName</h3>
+                            <h2>@item.Price$<span>/Pernight</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Hotel:</td>
+                                        <td>@item.HotelName</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Country:</td>
+                                        <td>@item.CountryName</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">State:</td>
+                                        <td>@item.StateName</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a asp-controller="Home" asp-action="RoomDetail" class="primary-btn" asp-route-roomID="@item.RoomName">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Rooms Section End -->
+
+<div class="d-flex justify-content-between align-items-center">
+
+
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("RoomSearch", new { page = page, location= ViewBag.location }),
+                 new PagedListRenderOptions
+        {
+
+            LiElementClasses = new List<String> { "page-item" },
+            PageClasses = new List<String> { "page-link" },
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            LinkToPreviousPageFormat = "« Previous",
+            LinkToNextPageFormat = "Next »",
+            MaximumPageNumbersToDisplay = 5,
+            UlElementClasses = new[] { "pagination", "justify-content-start" },
+        })
+
+
+    </div>
+</div>

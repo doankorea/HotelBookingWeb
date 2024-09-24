@@ -10,7 +10,7 @@ public partial class Room
     public string? RoomName { get; set; }
 
     public int? RoomTypeId { get; set; }
-
+    public int? HotelID { get; set; }
     public decimal? Price { get; set; }
 
     public string? Status { get; set; }
@@ -26,4 +26,7 @@ public partial class Room
     public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
     public virtual RoomType? RoomType { get; set; }
+
+    public virtual Hotel? Hotel { get; set; }
+
 }

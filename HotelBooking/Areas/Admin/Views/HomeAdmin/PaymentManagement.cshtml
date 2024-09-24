@@ -1,0 +1,56 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HotelBooking.Models.Payment>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Payment Management";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Payment Management</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Payment Date</th>
+            <th>Payment Method</th>
+            <th>Reservation ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>@Html.DisplayFor(modelItem => item.PaymentDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.PaymentMethod)</td>
+                <td>@Html.DisplayFor(modelItem => item.ReservationId)</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" asp-action="DeletePayment" asp-route-id="@item.PaymentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Payment", new { page = page }),
+                 new PagedListRenderOptions
+        {
+            LiElementClasses = new List<string> { "page-item" },
+            PageClasses = new List<string> { "page-link" },
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            LinkToPreviousPageFormat = "« Previous",
+            LinkToNextPageFormat = "Next »",
+            MaximumPageNumbersToDisplay = 5,
+            UlElementClasses = new[] { "pagination", "justify-content-start" }
+        })
+    </div>
+</div>

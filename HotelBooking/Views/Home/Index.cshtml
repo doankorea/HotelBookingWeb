@@ -8,7 +8,7 @@
 <!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="container">
-        <div class="row">   
+        <div class="row">
             <div class="col-lg-6">
                 <div class="hero-text">
                     <h1>Sona A Luxury Hotel</h1>
@@ -22,45 +22,41 @@
             <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                 <div class="booking-form">
                     <h3>Booking Your Hotel</h3>
-                    <form method="GET" action="/Booking/Index">
+                    <form method="GET" action="/Booking/RoomSearch">
                         <div class="form-group check-location">
                             <label for="location">Location:</label>
                             <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
                         </div>
-                         <div class="check-date">
+                        <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-input" id="date-in">
+                            <input type="text" class="date-input" id="date-in" name="checkin">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-input" id="date-out">
+                            <input type="text" class="date-input" id="date-out" name="checkout">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="select-option">
-                            <label for="guest">Guests:</label>
-                            <select id="guest">
-                                <option value="">2 Adults</option>
-                                <option value="">3 Adults</option>
-                            </select>
-                        </div>
-                        <div class="select-option">
                             <label for="room">Room:</label>
-                            <select id="room">
-                                <option value="">1 Room</option>
-                                <option value="">2 Room</option>
+
+                            <select id="room" name="room">
+                                <option value="Single">Single</option>
+                                <option value="Double">Double</option>
+                                <option value="Suite">Suite</option>
                             </select>
-                        </div> 
-                        <button type="submit">Search</button>
+
+                        </div>
+                        <button type="submit" asp-controller="Booking" asp-action="RoomSearch">Search</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="hero-slider owl-carousel">
-        <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-        <div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
-        <div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/img/hero/hero-1.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/img/hero/hero-2.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/img/hero/hero-3.jpg"></div>
     </div>
 </section>
 <!-- Hero Section End -->
@@ -207,7 +203,7 @@
                                         </tr>
                                         <tr>
                                             <td class="r-o">Bed:</td>
-                                            <td>@item.RoomType</td> <!-- Loại phòng hoặc giường, lấy từ dữ liệu -->
+                                            <td>@item.RoomTypeId</td> <!-- Loại phòng hoặc giường, lấy từ dữ liệu -->
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
@@ -217,7 +213,7 @@
                                 </table>
 
                                 <!-- Nút More Details -->
-                                <a href="#" class="primary-btn">More Details</a>
+                                <a asp-controller="Home" asp-action="RoomDetail" asp-route-roomID="@item.RoomName"  class="primary-btn">More Details</a>
                             </div>
                         </div>
                     </div>
