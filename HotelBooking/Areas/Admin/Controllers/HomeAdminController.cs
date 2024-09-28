@@ -1,16 +1,13 @@
 ﻿
 using HotelBooking.Models;
+using HotelBooking.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
-using System.Threading.Tasks;
-using HotelBooking.Models.Authentication;
-using Microsoft.AspNetCore.Authorization;
 namespace HotelBooking.Areas.Admin.Controllers
 {
-    
-    [Authentication]
+
     [Area("admin")]
     [Route("Admin")]
     [Route("Admin/homeadmin")]
@@ -25,6 +22,7 @@ namespace HotelBooking.Areas.Admin.Controllers
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
 
             var lstRoomType = db.RoomTypes.ToList();
+
             PagedList<RoomType> lst = new PagedList<RoomType>(lstRoomType, pageNumber, pageSize);
             return View(lst);
         }
@@ -81,17 +79,30 @@ namespace HotelBooking.Areas.Admin.Controllers
         [Route("")]
         [Route("index")]
         [Route("room")]
-        public IActionResult RoomManagement(int? page)
+        public IActionResult RoomManagement(int? page, string searchString)
         {
             int pageSize = 5;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-
             var lstRoom = db.Rooms.ToList();
-            PagedList<Room> lst = new PagedList<Room>(lstRoom, pageNumber, pageSize);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                lstRoom = lstRoom
+                    .Where(n => n.RoomName.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) >= 0)
+                    .ToList();
+            }
+
+            
+            if (!lstRoom.Any())
+            {
+                ViewBag.Message = "No rooms found matching your search criteria."; // Thông báo không tìm thấy phòng
+            }
             ViewBag.RoomTypeId = new SelectList(db.RoomTypes.ToList(), "RoomTypeId", "TypeName");
-            ViewBag.CountryID = new SelectList(db.Countries.ToList(), "CountryID", "CountryName");
+            ViewBag.HotelID = new SelectList(db.Hotels.ToList(), "HotelID", "HotelName");
+            
+            PagedList<Room> lst = new PagedList<Room>(lstRoom, pageNumber, pageSize);
             return View(lst);
         }
+
         [Route("Addnewroom")]
         [HttpGet]
         public IActionResult Addnewroom()
@@ -162,62 +173,112 @@ namespace HotelBooking.Areas.Admin.Controllers
 
             return RedirectToAction("RoomManagement");
         }
-        [Route("Editroom")]
-        [HttpGet]
-        public async Task<IActionResult> Editroom(int roomID)
+        [Route("IsActive")]
+        public async Task<IActionResult> IsActive(int RoomID)
         {
-            // Lấy danh sách RoomTypes
-            var roomTypes = db.RoomTypes
-                .Select(rt => new
-                {
-                    RoomTypeId = rt.RoomTypeId,
-                    TypeName = rt.TypeName
-                }).ToList();
+            // Find the room by ID
+            var room = await db.Rooms.FirstOrDefaultAsync(r => r.RoomId == RoomID);
 
-            ViewBag.RoomTypes = new SelectList(roomTypes, "RoomTypeId", "TypeName");
+            // Check if the room exists
+            if (room == null)
+            {
+                TempData["ErrorMessage"] = "Room not found.";
+                return RedirectToAction("RoomManagement");
+            }
 
-            // Lấy danh sách Countries
-            var countries = db.Countries
-                .Select(ct => new
-                {
-                    CountryId = ct.CountryId,
-                    CountryName = ct.CountryName
-                }).ToList();
-            ViewBag.Countries = new SelectList(countries, "CountryId", "CountryName");
-            var room = db.Rooms.Find(roomID);
-            return View();
-        }
-        [Route("Editroom")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editroom(Room room, IFormFile imageFile)
-        {
+            // Update the room status
+            room.Status = room.Status == "Available" ? "Occupied" : "Available"; 
+
+            // Save changes to the database
             try
-            {
-                string filename = Path.GetFileName(imageFile.FileName);
-                string uploadfilepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img\\room", filename);
-
-                using (var stream = new FileStream(uploadfilepath, FileMode.Create))
-                {
-                    await imageFile.CopyToAsync(stream);
-                }
-
-                room.Image = filename;
-                ViewBag.message = "File uploaded successfully!";
-            }
-            catch (Exception ex)
-            {
-                ViewBag.message = $"File upload failed: {ex.Message}";
-            }
-
-            if (ModelState.IsValid)
             {
                 db.Entry(room).State = EntityState.Modified;
                 await db.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Room status updated successfully.";
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                TempData["ErrorMessage"] = "Failed to update room status due to a concurrency issue.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
+            }
+
+            return RedirectToAction("RoomManagement"); // Redirect to the Room Management page
+        }
+        [Route("IsHotelActive")]
+        public async Task<IActionResult> IsHotelActive(int HotelId)
+        {
+            // Find the room by ID
+            var hotel = await db.Hotels.FirstOrDefaultAsync(r => r.HotelId == HotelId);
+
+            // Check if the room exists
+            if (hotel == null)
+            {
+                TempData["ErrorMessage"] = "Room not found.";
                 return RedirectToAction("RoomManagement");
             }
-            return View(room);
+
+            // Update the room status
+            hotel.IsActive = hotel.IsActive== false? true: false;
+
+            // Save changes to the database
+            try
+            {
+                db.Entry(hotel).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "hotel status updated successfully.";
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                TempData["ErrorMessage"] = "Failed to update hotel status due to a concurrency issue.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
+            }
+
+            return RedirectToAction("HotelManagement"); // Redirect to the Room Management page
         }
+        [Route("IsUserActive")]
+        public async Task<IActionResult> IsUserActive(int UserID)
+        {
+            // Find the room by ID
+            var user = await db.Users.FirstOrDefaultAsync(r => r.UserId == UserID);
+
+            // Check if the room exists
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "Room not found.";
+                return RedirectToAction("RoomManagement");
+            }
+
+            // Update the room status
+            user.IsActive = user.IsActive== false? true: false;
+
+            // Save changes to the database
+            try
+            {
+                db.Entry(user).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Room status updated successfully.";
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                TempData["ErrorMessage"] = "Failed to update room status due to a concurrency issue.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
+            }
+
+            return RedirectToAction("UserManagement"); // Redirect to the Room Management page
+        }
+
         [Route("Deleteroom")]
         [HttpGet]
         public async Task<IActionResult> Deleteroom(int id)
@@ -227,11 +288,23 @@ namespace HotelBooking.Areas.Admin.Controllers
             return RedirectToAction("Room");
         }
 
+        [Route("ProductbyHotel")]
+        public IActionResult ProductbyHotel(int HotelID, int? page)
+        {
+            int pageSize = 8;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var lstroom = db.Rooms.AsNoTracking()
+             .Include(r => r.Hotel)      // Load thông tin Hotel
+             .Include(r => r.RoomType)   // Load thông tin RoomType
+             .Where(x => x.HotelID == HotelID)
+             .OrderBy(x => x.RoomName);
 
-
-
-
-
+            ViewBag.RoomTypeId = new SelectList(db.RoomTypes.ToList(), "RoomTypeId", "TypeName");
+            ViewBag.HotelID = new SelectList(db.Hotels.ToList(), "HotelID", "HotelName");
+            ViewBag.HotelID2 = HotelID;
+            PagedList<Room> lst = new PagedList<Room>(lstroom, pageNumber, pageSize);
+            return View(lst);
+        }
 
 
 
@@ -241,9 +314,16 @@ namespace HotelBooking.Areas.Admin.Controllers
         {
             int pageSize = 5;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-
+            decimal Revenues = db.Reservations
+            .Where(rs => rs.Status == "Reserved")
+            .Join(db.Rooms,
+            rs => rs.RoomId,
+            r => r.RoomId,
+            (rs, r) => r.Price)
+            .Sum() ?? 0;
+            decimal Revenuess = Revenues * 0.05m;
             var lstReservation = db.Reservations.ToList();
-
+            ViewBag.Revenues = Revenuess;
             ViewBag.RoomID = new SelectList(db.Rooms.ToList(), "RoomID", "RoomName");
             ViewBag.User = new SelectList(db.Users.ToList(), "UserID", "Email");
             PagedList<Reservation> lst = new PagedList<Reservation>(lstReservation, pageNumber, pageSize);
@@ -349,7 +429,7 @@ namespace HotelBooking.Areas.Admin.Controllers
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
 
             var lstUser = db.Users.ToList();
-
+            
             PagedList<User> lst = new PagedList<User>(lstUser, pageNumber, pageSize);
             return View(lst);
         }
@@ -357,6 +437,14 @@ namespace HotelBooking.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddnewUser()
         {
+            var hotel = db.Hotels
+               .Select(rt => new
+               {
+                   HotelID = rt.HotelId,
+                   HotelName = rt.HotelName
+               }).ToList();
+
+            ViewBag.Hotels = new SelectList(hotel, "HotelID", "HotelName");
             return View();
         }
         [Route("AddnewUser")]
@@ -364,12 +452,11 @@ namespace HotelBooking.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddnewUser(User user)
         {
-            if (ModelState.IsValid)
-            {
+            
                 db.Users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("UserManagement");
-            }
+            
             return View(user);
 
         }
@@ -410,9 +497,37 @@ namespace HotelBooking.Areas.Admin.Controllers
         }
 
 
+        [Route("Hotel")]
+        public IActionResult HotelManagement(int? page)
+        {
+            int pageSize = 5;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
 
+            var lstHotel = db.Hotels.ToList();
 
+            PagedList<Hotel> lst = new PagedList<Hotel>(lstHotel, pageNumber, pageSize);
+            return View(lst);
+        }
 
+        [Route("AddnewHotel")]
+        [HttpGet]
+        public IActionResult AddnewHotel()
+        {
+            return View();
+        }
+        [Route("AddnewHotel")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddnewHotel(Hotel hotel)
+        {
+
+            db.Hotels.Add(hotel);
+            await db.SaveChangesAsync();
+            return RedirectToAction("HotelManagement");
+
+            return View(hotel);
+
+        }
 
 
 

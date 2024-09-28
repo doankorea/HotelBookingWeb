@@ -1,0 +1,16 @@
+﻿@using HotelBooking.Models
+@model IEnumerable<Hotel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form asp-controller="HomeAdmin" asp-action="ProductbyHotel" method="get">
+    <div class="form-group">
+        <label for="hotelSelect">Choose a Hotel:</label>
+        <select class="form-control" id="hotelSelect" name="HotelID" onchange="this.form.submit()">
+            <option value="">-- Select Hotel --</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.HotelId">@item.HotelName</option>
+            }
+        </select>
+    </div>
+</form>

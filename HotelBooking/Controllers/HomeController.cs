@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using HotelBooking.Models.Authentication;
+using HotelBooking.Models_View;
 namespace HotelBooking.Controllers
 {
     public class HomeController : Controller
@@ -28,7 +29,37 @@ namespace HotelBooking.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Cash(string roomID, DateTime checkin, DateTime checkout, string userName, string userEmail, decimal price, string nameRoom, string description)
+        {
+            ViewBag.userName = userName;
+            ViewBag.userEmail = userEmail;
+            ViewBag.price = price;
+            ViewBag.nameRoom = nameRoom;
+            ViewBag.description = description;
+            Console.WriteLine(checkin.ToString());
 
+            var roomid = _db.Rooms.SingleOrDefault(r => r.RoomName == roomID).RoomId;
+            int userid = _db.Users.SingleOrDefault(u => u.Email == userEmail).UserId;
+
+            Reservation reservation = new Reservation
+            {
+                UserId = userid,
+                RoomId = roomid,
+                CheckInDate = checkin,
+                CheckOutDate = checkout,
+                NumberOfGuests = 2,
+                Status = null,
+                BookingDate = DateTime.Now
+            };
+            _db.Reservations.Add(reservation);
+            await _db.SaveChangesAsync();
+
+            ViewBag.ReservationID = reservation.ReservationId;
+            ViewBag.Status = "Sucess";
+
+            var room = _db.Rooms.SingleOrDefault(r => r.RoomName == roomID);
+            return View(room);
+        }
         public async Task<IActionResult> Payment(string roomID, DateTime checkin, DateTime checkout,string userName, string userEmail, decimal price, string nameRoom, string description)
         {
             ViewBag.userName = userName;
@@ -113,7 +144,9 @@ namespace HotelBooking.Controllers
 
         public IActionResult Index()
         {
-            var lstroom = _db.Rooms.ToList();
+            var lstroom = (from r in _db.Rooms
+                              where r.Status == "Available"
+                              select r).ToList();
             return View(lstroom);
         }
 

@@ -1,4 +1,5 @@
-﻿using HotelBooking.Models;
+﻿using HotelBooking.Areas.Admin.Repository;
+using HotelBooking.Models;
 using HotelBooking.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("HotelDbContext");
 builder.Services.AddDbContext<HotelDbContext>(x => x.UseSqlServer(connectionString));
 // Add services to the container.
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();

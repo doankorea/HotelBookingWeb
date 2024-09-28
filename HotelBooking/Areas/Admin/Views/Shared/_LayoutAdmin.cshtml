@@ -37,12 +37,12 @@
                             <div class="input-group-prepend bg-transparent">
                                 <i class="input-group-text border-0 mdi mdi-magnify"></i>
                             </div>
-                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+                            <input name="searchString" asp-action="RoomManagement" asp-controller="HomeAdmin" type="text" class="form-control bg-transparent border-0" placeholder="Search..." >
                         </div>
                     </form>
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-profile dropdown">
+                    @* <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
                                 <img src="../../LayoutAdmin/assets/images/faces/face1.jpg" alt="image">
@@ -61,13 +61,13 @@
                                 <i class="mdi mdi-logout me-2 text-primary"></i> Signout
                             </a>
                         </div>
-                    </li>
+                    </li> *@
                     <li class="nav-item d-none d-lg-block full-screen-link">
                         <a class="nav-link">
                             <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    @* <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="mdi mdi-email-outline"></i>
                             <span class="count-symbol bg-warning"></span>
@@ -154,17 +154,17 @@
                             <div class="dropdown-divider"></div>
                             <h6 class="p-3 mb-0 text-center">See all notifications</h6>
                         </div>
-                    </li>
+                    </li> *@
                     <li class="nav-item nav-logout d-none d-lg-block">
                         <a class="nav-link" href="/Access/Logout">
                             <i class="mdi mdi-power"></i>
                         </a>
                     </li>
-                    <li class="nav-item nav-settings d-none d-lg-block">
+                    @* <li class="nav-item nav-settings d-none d-lg-block">
                         <a class="nav-link" href="#">
                             <i class="mdi mdi-format-line-spacing"></i>
                         </a>
-                    </li>
+                    </li> *@
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
@@ -191,17 +191,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">Room Management</span>
-                            <i class="menu-arrow"></i>
+                        <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="Room" >
+                            <span class="menu-title">Rooms Management</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a  class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="RoomType" >RoomTypes</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="Room">Rooms</a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="Reservation">
@@ -210,17 +203,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="Hotel">
+                            <span class="menu-title">Hotel Management</span>
+                            <i class="mdi mdi-contacts menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="User">
                             <span class="menu-title">UserManagement</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>
-                    </li>
+                    </li>@* 
                     <li class="nav-item">
                         <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="Payment">
                             <span class="menu-title">PaymentManagement</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>
-                    </li>
+                    </li> *@
                 </ul>
             </nav>
             <!-- partial -->

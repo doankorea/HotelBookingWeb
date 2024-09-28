@@ -127,7 +127,7 @@ namespace HotelBooking.Migrations
 
                     b.HasKey("HotelId");
 
-                    b.ToTable("Hotel");
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("HotelBooking.Models.Payment", b =>
@@ -336,6 +336,9 @@ namespace HotelBooking.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("HotelID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -351,6 +354,8 @@ namespace HotelBooking.Migrations
 
                     b.HasKey("UserId")
                         .HasName("PK__Users__1788CCACB90D6ED4");
+
+                    b.HasIndex("HotelID");
 
                     b.HasIndex(new[] { "Email" }, "UQ__Users__A9D105344131D01A")
                         .IsUnique();
@@ -444,6 +449,15 @@ namespace HotelBooking.Migrations
                         .HasConstraintName("FK__States__CountryI__59FA5E80");
 
                     b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("HotelBooking.Models.User", b =>
+                {
+                    b.HasOne("HotelBooking.Models.Hotel", "Hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelID");
+
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("RoomAmenity", b =>

@@ -24,7 +24,6 @@ namespace HotelBooking.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
             return View();
         }
 		[Route("Login")]
@@ -58,6 +57,11 @@ namespace HotelBooking.Areas.Admin.Controllers
                         // Redirect to the home page
                         return RedirectToAction("Index", "Home");
                     }
+                    else if (u.Role == "Receptionist")
+                    {
+                        // Redirect to the home page
+                        return RedirectToAction("Index", "HotelAdmin", new { hoteladminID = u.UserId });
+                    }
                     else
                     {
                         // Invalid role case (additional role check could be done)
@@ -70,7 +74,6 @@ namespace HotelBooking.Areas.Admin.Controllers
                     TempData["error"] = "Tài khoản hoặc mật khẩu không đúng";
                 }
             }
-
             // If login fails, stay on the login page
             return View();
         }

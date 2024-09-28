@@ -5,13 +5,20 @@
     ViewData["Title"] = "Reservation Management";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <h1 class="text-center">Reservation Management</h1>
 <hr />
-
+<div class="col-md-3">
+    <nav class="nav flex-column">
+        <div class="nav-item border rounded p-3" style="background-color: #f8f9fa;">
+            <span class="nav-link">
+                Revenue: @ViewBag.Revenues.ToString("C")  <!-- Định dạng số thành kiểu tiền tệ -->
+            </span>
+        </div>
+    </nav>
+</div>@*
 <div class="mb-3">
     <a asp-action="AddnewReservation" class="btn btn-success">Create New Reservation</a>
-</div>
+</div> *@
 
 <table class="table table-striped table-bordered">
     <thead class="thead-dark">
@@ -23,24 +30,24 @@
             <th>Booking Date</th>
             <th>Room</th>
             <th>User</th>
-            <th class="text-center">Actions</th>
+            @* <th class="text-center">Actions</th> *@
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.CheckInDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.CheckOutDate)</td>
+                <td>@(item.CheckInDate?.ToShortDateString() ?? "N/A")</td>
+                <td>@(item.CheckOutDate?.ToShortDateString() ?? "N/A")</td>
                 <td>@Html.DisplayFor(modelItem => item.NumberOfGuests)</td>
                 <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
+                <td>@(item.BookingDate?.ToShortDateString() ?? "N/A")</td>
                 <td>@Html.DisplayFor(modelItem => item.Room.RoomName)</td>
                 <td>@Html.DisplayFor(modelItem => item.User.Email)</td>
                 <td class="text-center">
 
-                    <a asp-action="EditReservation" asp-route-ReservationId="@item.ReservationId" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-action="DeleteReservation" asp-route-id="@item.ReservationId" class="btn btn-sm btn-danger">Delete</a>
+                    @* <a asp-action="EditReservation" asp-route-ReservationId="@item.ReservationId" class="btn btn-warning btn-sm">Edit</a> *@
+                    @* <a asp-action="DeleteReservation" asp-route-id="@item.ReservationId" class="btn btn-sm btn-danger">Delete</a> *@
                 </td>
             </tr>
         }

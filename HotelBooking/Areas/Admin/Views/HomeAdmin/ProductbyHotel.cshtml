@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "ProductbyHotel";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HotelBooking.Models.Room>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Room Management</h1>
+@*
+<p>
+    <a asp-action="Addnewroom" asp-route-Hotelid="@ViewBag.HotelID" class="btn btn-primary">Create New</a>
+</p> *@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Room Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Created Date</th>
+            <th>Image</th>
+            <th>Hotel</th>
+            <th>Room Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RoomName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                <td>
+                    @if (item.Image != null)
+                    {
+                        <img style="width: 50px; height: 50px" src="@(item.Image.StartsWith("/") ? item.Image : "/img/room/" + item.Image)" />
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
+                <td>@Html.DisplayFor(modelItem => item.RoomType.TypeName)</td>
+                <td>@* 
+                    <a asp-action="Editroom" asp-route-Roomid="@item.RoomName" class="btn btn-warning btn-sm">Edit</a> *@
+
+                    <a asp-action="IsActive" asp-route-Roomid="@item.RoomId" class="btn btn-warning btn-sm">Isactive</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("ProductbyHotel", new { page = page, HotelID = ViewBag.HotelID2 }),
+                 new PagedListRenderOptions
+        {
+            LiElementClasses = new List<string> { "page-item" },
+            PageClasses = new List<string> { "page-link" },
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            LinkToPreviousPageFormat = "« Previous",
+            LinkToNextPageFormat = "Next »",
+            MaximumPageNumbersToDisplay = 5,
+            UlElementClasses = new[] { "pagination", "justify-content-start" }
+        })
+    </div>
+</div>

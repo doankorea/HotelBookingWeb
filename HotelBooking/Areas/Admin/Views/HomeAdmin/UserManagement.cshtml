@@ -41,9 +41,10 @@
                         <td>@Html.DisplayFor(modelItem => item.Role)</td>
                         <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
                         <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
-                        <td>
+                        <td>@* 
                             <a class="btn btn-sm btn-warning" asp-action="EditUser" asp-route-UserID="@item.UserId">Edit</a>
-                            <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-Userid="@item.UserId">Delete</a>
+                            <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-Userid="@item.UserId">Delete</a> *@
+                            <a class="btn btn-sm btn-warning" asp-action="IsUseractive" asp-route-UserID="@item.UserId">IsActive</a>
                         </td>
                     </tr>
                 }

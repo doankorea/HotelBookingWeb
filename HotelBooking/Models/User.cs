@@ -21,6 +21,7 @@ public partial class User
     public DateTime? CreatedAt { get; set; }
 
     public bool IsActive { get; set; }
-
+    public int? HotelID { get; set; }
+    public virtual Hotel Hotel { get; set; }
     public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 }

@@ -1,0 +1,77 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model HotelBooking.Models.Reservation
+@using HotelBooking.Models
+@{
+    ViewData["Title"] = "Add New Reservation";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center">Add New Reservation</h1>
+
+<h4>Reservation Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddnewReservation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- User -->
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Select User</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+            <!-- Room -->
+            <div class="form-group">
+                <label asp-for="RoomId" class="control-label">Select Room</label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.Rooms"></select>
+                <span asp-validation-for="RoomId" class="text-danger"></span>
+            </div>
+
+            <!-- Check-In Date -->
+            <div class="form-group">
+                <label asp-for="CheckInDate" class="control-label">Check-In Date</label>
+                <input asp-for="CheckInDate" class="form-control" type="date" />
+                <span asp-validation-for="CheckInDate" class="text-danger"></span>
+            </div>
+
+            <!-- Check-Out Date -->
+            <div class="form-group">
+                <label asp-for="CheckOutDate" class="control-label">Check-Out Date</label>
+                <input asp-for="CheckOutDate" class="form-control" type="date" />
+                <span asp-validation-for="CheckOutDate" class="text-danger"></span>
+            </div>
+
+            <!-- Number of Guests -->
+            <div class="form-group">
+                <label asp-for="NumberOfGuests" class="control-label">Number of Guests</label>
+                <input asp-for="NumberOfGuests" class="form-control" type="number" />
+                <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Reservation Status</label>
+                <select asp-for="Status" class="form-control">
+
+                    <option value="Reserved">Reserved</option>
+                    <option value="Checked-in">Checked-in</option>
+                    <option value="Checked-out">Checked-out</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Reservation" class="btn btn-secondary">Back to List</a>
+</div>

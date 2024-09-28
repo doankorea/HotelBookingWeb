@@ -7,62 +7,71 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <h1>Room Management</h1>
+<div class="col-md-3">
+    <nav>
+        @await Component.InvokeAsync("HotelMenu")
+    </nav>
+</div>
+<div class="row">
+    
+    <div class="col-md-9">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Room Name</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Image</th>
+                    <th>Room Type</th>
+                    <th>Hotel</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.RoomName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>@(item.CreatedDate?.ToShortDateString() ?? "N/A")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Image))
+                            {
+                                <img style="width: 50px; height: 50px" src="@(item.Image.StartsWith("/") ? item.Image : "/img/room/" + item.Image)" alt="Room Image" />
+                            }
+                            else
+                            {
+                                <span>No Image</span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.RoomType.TypeName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hotel.HotelName)</td>
+                        <td>
+                            <a asp-action="IsActive" asp-route-RoomId="@item.RoomId" class="btn btn-warning btn-sm">Activate</a>
+                            @* <a asp-action="Deleteroom" asp-route-id="@item.RoomId" class="btn btn-danger btn-sm">Delete</a> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-<p>
-    <a asp-action="Addnewroom" class="btn btn-primary">Create New</a>
-</p>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Room Name</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th>Image</th>
-            <th>Country</th>
-            <th>Room Type</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.RoomName)</td>
-                <td>@Html.DisplayFor(modelItem => item.Price)</td>
-                <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
-                <td>
-                    @if (item.Image != null)
-                    {
-                        <img style="width: 50px; height: 50px" src="@(item.Image.StartsWith("/") ? item.Image : "/img/room/" + item.Image)" />
-                    }
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.Country.CountryName)</td>
-                <td>@Html.DisplayFor(modelItem => item.RoomType.TypeName)</td>
-                <td>
-                    <a asp-action="Editroom" asp-route-id="@item.RoomId" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-action="Deleteroom" asp-route-id="@item.RoomId" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div class="d-flex justify-content-between align-items-center mt-3">
-    <div>
-        @Html.PagedListPager(Model, page => Url.Action("Room", new { page = page }),
-                 new PagedListRenderOptions
-        {
-            LiElementClasses = new List<string> { "page-item" },
-            PageClasses = new List<string> { "page-link" },
-            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-            DisplayLinkToNextPage = PagedListDisplayMode.Always,
-            LinkToPreviousPageFormat = "« Previous",
-            LinkToNextPageFormat = "Next »",
-            MaximumPageNumbersToDisplay = 5,
-            UlElementClasses = new[] { "pagination", "justify-content-start" }
-        })
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div>
+                @Html.PagedListPager(Model, page => Url.Action("Room", new { page = page }),
+                         new PagedListRenderOptions
+                {
+                    LiElementClasses = new List<string> { "page-item" },
+                    PageClasses = new List<string> { "page-link" },
+                    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                    DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                    LinkToPreviousPageFormat = "« Previous",
+                    LinkToNextPageFormat = "Next »",
+                    MaximumPageNumbersToDisplay = 5,
+                    UlElementClasses = new[] { "pagination", "justify-content-start" }
+                })
+            </div>
+        </div>
     </div>
 </div>

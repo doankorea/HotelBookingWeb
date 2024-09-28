@@ -1,0 +1,76 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model HotelBooking.Models.Room
+@using HotelBooking.Models
+@{
+    ViewData["Title"] = "Edit Room";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHotelAdmin.cshtml";
+}
+
+<h1>Edit Room</h1>
+
+<h4>Room Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editroom" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="RoomId" />
+
+            <div class="form-group">
+                <label asp-for="RoomName" class="control-label">Room Name</label>
+                <input asp-for="RoomName" class="form-control" placeholder="" value="@Model.RoomName" />
+                <span asp-validation-for="RoomName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RoomTypeId" class="control-label">Room Type</label>
+                <select asp-for="RoomTypeId" class="form-control" asp-items="ViewBag.RoomTypes">
+                    <option value="">Select Room Type</option>
+                </select>
+                <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" type="number" step="1" placeholder="" value="@Model.Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Status</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Under Maintenance">Under Maintenance</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Room Image</label>
+                <input type="file" asp-for="Image" class="form-control" name="imageFile" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label">Country</label>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Countries">
+                    <option value="">Select Country</option>
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="HotelID" value="@ViewBag.HotelID" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Room" asp-route-hoteladminID="@ViewContext.HttpContext.Session.GetString("ID")" class="btn btn-secondary">Back to List</a>
+</div>
+
+

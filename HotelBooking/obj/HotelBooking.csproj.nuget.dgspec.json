@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HotelBooking\\HotelBooking\\HotelBooking\\HotelBooking.csproj": {}
+    "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {}
   },
   "projects": {
-    "D:\\HotelBooking\\HotelBooking\\HotelBooking\\HotelBooking.csproj": {
+    "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\HotelBooking.csproj",
+        "projectUniqueName": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
         "projectName": "HotelBooking",
-        "projectPath": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\HotelBooking.csproj",
+        "projectPath": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
         "packagesPath": "C:\\Users\\tddnh\\.nuget\\packages\\",
-        "outputPath": "D:\\HotelBooking\\HotelBooking\\HotelBooking\\obj\\",
+        "outputPath": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tddnh\\AppData\\Roaming\\NuGet\\NuGet.Config",

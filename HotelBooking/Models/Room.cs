@@ -6,7 +6,6 @@ namespace HotelBooking.Models;
 public partial class Room
 {
     public int RoomId { get; set; }
-
     public string? RoomName { get; set; }
 
     public int? RoomTypeId { get; set; }
