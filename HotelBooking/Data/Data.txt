@@ -1,0 +1,380 @@
+ 
+CREATE DATABASE HotelDb
+
+USE HotelDb
+CREATE TABLE dbo.Amenities(
+	AmenityID int IDENTITY(1,1) NOT NULL,
+	Name nvarchar(100) NULL,
+	Description nvarchar(255) NULL,
+	IsActive bit NULL,
+PRIMARY KEY CLUSTERED 
+(
+	AmenityID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Countries    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Countries(
+	CountryID int IDENTITY(1,1) NOT NULL,
+	CountryName nvarchar(50) NULL,
+	CountryCode nvarchar(10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	CountryID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Feedbacks    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Feedbacks(
+	FeedbackID int IDENTITY(1,1) NOT NULL,
+	ReservationID int NULL,
+	Rating int NULL,
+	Comment nvarchar(1000) NULL,
+	FeedbackDate datetime NULL,
+PRIMARY KEY CLUSTERED 
+(
+	FeedbackID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Hotels    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Hotels(
+	HotelID int IDENTITY(1,1) NOT NULL,
+	HotelName nvarchar(50) NULL,
+	IsActive bit NULL,
+PRIMARY KEY CLUSTERED 
+(
+	HotelID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Payments    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Payments(
+	PaymentID int IDENTITY(1,1) NOT NULL,
+	ReservationID int NULL,
+	Amount decimal(10, 2) NULL,
+	PaymentDate datetime NULL,
+	PaymentMethod nvarchar(50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	PaymentID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Reservations    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Reservations(
+	ReservationID int IDENTITY(1,1) NOT NULL,
+	UserID int NULL,
+	RoomID int NULL,
+	CheckInDate datetime NULL,
+	CheckOutDate datetime NULL,
+	NumberOfGuests int NULL,
+	Status nvarchar(50) NULL,
+	BookingDate datetime NULL,
+PRIMARY KEY CLUSTERED 
+(
+	ReservationID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.RoomAmenities    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.RoomAmenities(
+	RoomTypeID int NOT NULL,
+	AmenityID int NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	RoomTypeID ASC,
+	AmenityID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Rooms    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Rooms(
+	RoomID int IDENTITY(1,1) NOT NULL,
+	RoomName nvarchar(10) NULL,
+	RoomTypeID int NULL,
+	Price decimal(10, 2) NULL,
+	Status nvarchar(50) NULL,
+	CreatedDate datetime NULL,
+	Image nvarchar(255) NULL,
+	CountryID int NULL,
+	HotelID int NULL,
+PRIMARY KEY CLUSTERED 
+(
+	RoomID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.RoomTypes    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.RoomTypes(
+	RoomTypeID int IDENTITY(1,1) NOT NULL,
+	TypeName nvarchar(50) NULL,
+	Description nvarchar(255) NULL,
+	IsActive bit NULL,
+PRIMARY KEY CLUSTERED 
+(
+	RoomTypeID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.States    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.States(
+	StateID int IDENTITY(1,1) NOT NULL,
+	StateName nvarchar(50) NULL,
+	CountryID int NULL,
+PRIMARY KEY CLUSTERED 
+(
+	StateID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+/****** Object:  Table dbo.Users    Script Date: 10/17/2024 11:20:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE dbo.Users(
+	UserID int IDENTITY(1,1) NOT NULL,
+	Email nvarchar(100) NULL,
+	PasswordHash nvarchar(255) NULL,
+	Role nvarchar(50) NULL,
+	CreatedAt datetime NULL,
+	IsActive bit NULL,
+	HotelID int NULL,
+PRIMARY KEY CLUSTERED 
+(
+	UserID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+) ON PRIMARY
+GO
+SET IDENTITY_INSERT dbo.Amenities ON 
+
+INSERT dbo.Amenities (AmenityID, Name, Description, IsActive) VALUES (1, N'Free WiFi', N'High-speed wireless internet access', 1)
+INSERT dbo.Amenities (AmenityID, Name, Description, IsActive) VALUES (2, N'Breakfast Included', N'Complimentary breakfast every morning', 1)
+INSERT dbo.Amenities (AmenityID, Name, Description, IsActive) VALUES (3, N'Parking', N'Free parking space for guests', 1)
+SET IDENTITY_INSERT dbo.Amenities OFF
+GO
+SET IDENTITY_INSERT dbo.Countries ON 
+
+INSERT dbo.Countries (CountryID, CountryName, CountryCode) VALUES (1, N'United States', N'US')
+INSERT dbo.Countries (CountryID, CountryName, CountryCode) VALUES (2, N'Canada', N'CA')
+INSERT dbo.Countries (CountryID, CountryName, CountryCode) VALUES (3, N'United Kingdom', N'UK')
+SET IDENTITY_INSERT dbo.Countries OFF
+GO
+SET IDENTITY_INSERT dbo.Feedbacks ON 
+
+INSERT dbo.Feedbacks (FeedbackID, ReservationID, Rating, Comment, FeedbackDate) VALUES (1, 1, 4, N'Great stay, but the WiFi could be faster.', CAST(N'2024-09-20T22:08:40.517' AS DateTime))
+INSERT dbo.Feedbacks (FeedbackID, ReservationID, Rating, Comment, FeedbackDate) VALUES (2, 2, 5, N'Excellent service and very comfortable room!', CAST(N'2024-09-20T22:08:40.517' AS DateTime))
+SET IDENTITY_INSERT dbo.Feedbacks OFF
+GO
+SET IDENTITY_INSERT dbo.Hotels ON 
+
+INSERT dbo.Hotels (HotelID, HotelName, IsActive) VALUES (1, N'Grand Hotel', 1)
+INSERT dbo.Hotels (HotelID, HotelName, IsActive) VALUES (2, N'Beachside Resort', 1)
+INSERT dbo.Hotels (HotelID, HotelName, IsActive) VALUES (3, N'Muong Thanh', 1)
+SET IDENTITY_INSERT dbo.Hotels OFF
+GO
+SET IDENTITY_INSERT dbo.Payments ON 
+
+INSERT dbo.Payments (PaymentID, ReservationID, Amount, PaymentDate, PaymentMethod) VALUES (71, 96, CAST(50000.00 AS Decimal(10, 2)), CAST(N'2024-09-25T15:27:33.290' AS DateTime), N'VnPay')
+INSERT dbo.Payments (PaymentID, ReservationID, Amount, PaymentDate, PaymentMethod) VALUES (72, 97, CAST(12000.00 AS Decimal(10, 2)), CAST(N'2024-09-25T22:33:58.263' AS DateTime), N'VnPay')
+INSERT dbo.Payments (PaymentID, ReservationID, Amount, PaymentDate, PaymentMethod) VALUES (73, 98, CAST(1231231.00 AS Decimal(10, 2)), CAST(N'2024-09-25T23:04:30.753' AS DateTime), N'VnPay')
+INSERT dbo.Payments (PaymentID, ReservationID, Amount, PaymentDate, PaymentMethod) VALUES (74, 104, CAST(1231231.00 AS Decimal(10, 2)), CAST(N'2024-09-28T01:18:10.513' AS DateTime), N'VnPay')
+INSERT dbo.Payments (PaymentID, ReservationID, Amount, PaymentDate, PaymentMethod) VALUES (75, 105, CAST(150000.00 AS Decimal(10, 2)), CAST(N'2024-10-03T11:21:26.107' AS DateTime), N'VnPay')
+SET IDENTITY_INSERT dbo.Payments OFF
+GO
+SET IDENTITY_INSERT dbo.Reservations ON 
+
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (1, 3, 1, CAST(N'2024-09-15T00:00:00.000' AS DateTime), CAST(N'2024-09-17T00:00:00.000' AS DateTime), 1, N'Reserved', CAST(N'2024-09-20T22:08:40.517' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (2, 4, 2, CAST(N'2024-09-10T00:00:00.000' AS DateTime), CAST(N'2024-09-12T00:00:00.000' AS DateTime), 2, N'Checked-in', CAST(N'2024-09-20T22:08:40.517' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (4, 1, 1, CAST(N'2024-09-01T00:00:00.000' AS DateTime), CAST(N'2024-09-03T00:00:00.000' AS DateTime), 2, N'Checked-in', CAST(N'2024-09-22T01:31:47.277' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (6, 3, 1, CAST(N'2024-09-03T00:00:00.000' AS DateTime), CAST(N'2024-09-12T00:00:00.000' AS DateTime), 12, N'Checked-in', CAST(N'2024-09-22T04:44:49.910' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (95, 6, 1, CAST(N'2024-09-22T00:00:00.000' AS DateTime), CAST(N'2024-09-25T00:00:00.000' AS DateTime), 2, N'Cancelled', CAST(N'2024-09-23T16:11:12.827' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (96, 6, 1, CAST(N'2024-09-29T15:27:00.000' AS DateTime), CAST(N'2024-10-01T15:27:00.000' AS DateTime), 2, N'Cancelled', CAST(N'2024-09-25T15:27:28.193' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (97, 6, 51, CAST(N'2024-10-07T22:33:00.000' AS DateTime), CAST(N'2024-10-08T22:33:00.000' AS DateTime), 2, N'Reserved', CAST(N'2024-09-25T22:33:54.843' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (98, 6, 56, CAST(N'2024-10-06T23:04:00.000' AS DateTime), CAST(N'2024-10-08T23:04:00.000' AS DateTime), 2, N'Reserved', CAST(N'2024-09-25T23:04:28.957' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (104, 6, 56, CAST(N'2024-10-01T01:17:00.000' AS DateTime), CAST(N'2024-10-07T01:17:00.000' AS DateTime), 2, N'Reserved', CAST(N'2024-09-28T01:18:05.377' AS DateTime))
+INSERT dbo.Reservations (ReservationID, UserID, RoomID, CheckInDate, CheckOutDate, NumberOfGuests, Status, BookingDate) VALUES (105, 6, 3, CAST(N'2024-10-27T11:21:00.000' AS DateTime), CAST(N'2024-11-03T11:21:00.000' AS DateTime), 2, N'Reserved', CAST(N'2024-10-03T11:21:19.837' AS DateTime))
+SET IDENTITY_INSERT dbo.Reservations OFF
+GO
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (1, 1)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (1, 2)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (2, 1)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (2, 3)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (3, 1)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (3, 2)
+INSERT dbo.RoomAmenities (RoomTypeID, AmenityID) VALUES (3, 3)
+GO
+SET IDENTITY_INSERT dbo.Rooms ON 
+
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (1, N'101', 1, CAST(50.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T22:08:40.513' AS DateTime), N'room-b1.jpg', 1, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (2, N'102', 2, CAST(75.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T22:08:40.513' AS DateTime), N'room-b2.jpg', 1, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (3, N'201', 3, CAST(150.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T22:08:40.513' AS DateTime), N'room-b3.jpg', 2, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (4, N'202', 1, CAST(60.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T22:08:40.513' AS DateTime), N'room-b4.jpg', 3, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (5, N'1013', 1, CAST(50.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T23:56:36.070' AS DateTime), N'room-b1.jpg', 1, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (6, N'1024', 2, CAST(75.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T23:56:36.070' AS DateTime), N'room-b2.jpg', 1, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (7, N'2011', 3, CAST(150.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T23:56:36.070' AS DateTime), N'room-b3.jpg', 2, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (8, N'2022', 1, CAST(60.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-20T23:56:36.070' AS DateTime), N'room-b4.jpg', 3, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (35, N'room1', 2, CAST(123.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-22T00:32:32.143' AS DateTime), N'09e8d2382aa7d1132964542bf9b133a6.jpg', 1, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (36, N'Room', 1, CAST(12.00 AS Decimal(10, 2)), N'Occupied', CAST(N'2024-09-22T10:36:59.743' AS DateTime), N'457017910_829313709344420_3823858557246145111_n.jpg', NULL, NULL)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (38, N'1014', 1, CAST(50.00 AS Decimal(10, 2)), N'Available', NULL, N'a.jpg', 1, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (51, N'1208', 1, CAST(12000.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-25T16:21:48.393' AS DateTime), N'09e8d2382aa7d1132964542bf9b133a6.jpg', 1, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (52, N'120803', 2, CAST(12000.00 AS Decimal(10, 2)), N'Occupied', CAST(N'2024-09-25T17:10:19.430' AS DateTime), N'4c217720-7cc3-4678-814c-1ce765e1210d.jpg', 3, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (53, N'12083', 1, CAST(12800000.00 AS Decimal(10, 2)), N'Under Maintenance', CAST(N'2024-09-25T17:35:35.410' AS DateTime), N'2911ec0f-e25b-43cc-95d2-3ab0f278db67.jpg', 2, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (54, N'120833', 2, CAST(1298000.00 AS Decimal(10, 2)), N'Occupied', CAST(N'2024-09-25T17:38:57.380' AS DateTime), N'z5225872656686_6e91b9f29d9686bc9a9baf91224985d5.jpg', 2, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (55, N'11208', 5, CAST(12312390.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-25T17:42:50.560' AS DateTime), N'utopia-cover-desktop-wallpaper-2560x1440p-v0-meo87mmxx5fb1.webp', 2, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (56, N'120822', 1, CAST(1231231.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-25T17:47:44.340' AS DateTime), N'z5823143922244_195eb85ee4b501a5d84064238d5ae914.jpg', 1, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (57, N'12081313', 2, CAST(1231313.00 AS Decimal(10, 2)), N'Occupied', CAST(N'2024-09-25T17:50:18.437' AS DateTime), N'download.jpg', 1, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (58, N'221212', 2, CAST(1231313.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-25T17:54:14.600' AS DateTime), N'z5225872656686_6e91b9f29d9686bc9a9baf91224985d5.jpg', 1, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (59, N'11231', 1, CAST(2131131.00 AS Decimal(10, 2)), N'Under Maintenance', CAST(N'2024-09-25T17:55:25.140' AS DateTime), N'utopia-cover-desktop-wallpaper-2560x1440p-v0-meo87mmxx5fb1.webp', 2, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (60, N'1208234', 3, CAST(124112.00 AS Decimal(10, 2)), N'Occupied', CAST(N'2024-09-25T18:00:42.617' AS DateTime), N'utopia-cover-desktop-wallpaper-2560x1440p-v0-meo87mmxx5fb1.webp', 2, 1)
+INSERT dbo.Rooms (RoomID, RoomName, RoomTypeID, Price, Status, CreatedDate, Image, CountryID, HotelID) VALUES (62, N'room2', 2, CAST(12000.00 AS Decimal(10, 2)), N'Available', CAST(N'2024-09-28T13:23:44.693' AS DateTime), N'457017910_829313709344420_3823858557246145111_n.jpg', 2, 2)
+SET IDENTITY_INSERT dbo.Rooms OFF
+GO
+SET IDENTITY_INSERT dbo.RoomTypes ON 
+
+INSERT dbo.RoomTypes (RoomTypeID, TypeName, Description, IsActive) VALUES (1, N'Single', N'Single bed room for one person', 1)
+INSERT dbo.RoomTypes (RoomTypeID, TypeName, Description, IsActive) VALUES (2, N'Double', N'Double bed room for two persons', 1)
+INSERT dbo.RoomTypes (RoomTypeID, TypeName, Description, IsActive) VALUES (3, N'Suite', N'Luxury suite with living area', 1)
+INSERT dbo.RoomTypes (RoomTypeID, TypeName, Description, IsActive) VALUES (5, N'President', N'President room', 1)
+SET IDENTITY_INSERT dbo.RoomTypes OFF
+GO
+SET IDENTITY_INSERT dbo.States ON 
+
+INSERT dbo.States (StateID, StateName, CountryID) VALUES (1, N'California', 1)
+INSERT dbo.States (StateID, StateName, CountryID) VALUES (2, N'Ontario', 2)
+INSERT dbo.States (StateID, StateName, CountryID) VALUES (3, N'England', 3)
+SET IDENTITY_INSERT dbo.States OFF
+GO
+SET IDENTITY_INSERT dbo.Users ON 
+
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (1, N'admin@hotel.com', N'hashedpassword1', N'Admin', CAST(N'2024-09-20T22:08:40.510' AS DateTime), 1, NULL)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (3, N'customer1@hotel.com', N'hashedpassword3', N'Customer', CAST(N'2024-09-20T22:08:40.510' AS DateTime), 1, NULL)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (4, N'customer2@hotel.com', N'hashedpassword4', N'Customer', CAST(N'2024-09-20T22:08:40.510' AS DateTime), 1, NULL)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (6, N'tddnhny@gmail.com', N'afsdfaf123', N'Admin', NULL, 1, NULL)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (11, N'hoteladmin@gmail.com', N'abc123', N'Receptionist', CAST(N'2024-09-24T14:37:18.790' AS DateTime), 1, NULL)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (12, N'adminhotel2@hotel.com', N'hashedpassword1', N'Receptionist', CAST(N'2024-09-24T16:30:33.680' AS DateTime), 1, 1)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (13, N'tddnhny2@gmail.com', N'asc123', N'Receptionist', CAST(N'2024-09-26T00:19:58.620' AS DateTime), 1, 2)
+INSERT dbo.Users (UserID, Email, PasswordHash, Role, CreatedAt, IsActive, HotelID) VALUES (14, N'doankorea123@gmail.com', N'123456', N'Customer', CAST(N'2024-10-16T23:13:14.330' AS DateTime), 0, NULL)
+SET IDENTITY_INSERT dbo.Users OFF
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index UQ__Rooms__6B500B55D94A940B    Script Date: 10/17/2024 11:20:35 PM ******/
+ALTER TABLE dbo.Rooms ADD UNIQUE NONCLUSTERED 
+(
+	RoomName ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index UQ__Users__A9D105344131D01A    Script Date: 10/17/2024 11:20:35 PM ******/
+ALTER TABLE dbo.Users ADD UNIQUE NONCLUSTERED 
+(
+	Email ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON PRIMARY
+GO
+ALTER TABLE dbo.Amenities ADD  DEFAULT ((1)) FOR IsActive
+GO
+ALTER TABLE dbo.Feedbacks ADD  DEFAULT (getdate()) FOR FeedbackDate
+GO
+ALTER TABLE dbo.Hotels ADD  DEFAULT ((1)) FOR IsActive
+GO
+ALTER TABLE dbo.Payments ADD  DEFAULT (getdate()) FOR PaymentDate
+GO
+ALTER TABLE dbo.Reservations ADD  DEFAULT (getdate()) FOR BookingDate
+GO
+ALTER TABLE dbo.Rooms ADD  DEFAULT (getdate()) FOR CreatedDate
+GO
+ALTER TABLE dbo.RoomTypes ADD  DEFAULT ((1)) FOR IsActive
+GO
+ALTER TABLE dbo.Users ADD  DEFAULT (getdate()) FOR CreatedAt
+GO
+ALTER TABLE dbo.Users ADD  DEFAULT ((1)) FOR IsActive
+GO
+ALTER TABLE dbo.Feedbacks  WITH CHECK ADD FOREIGN KEY(ReservationID)
+REFERENCES dbo.Reservations (ReservationID)
+GO
+ALTER TABLE dbo.Payments  WITH CHECK ADD FOREIGN KEY(ReservationID)
+REFERENCES dbo.Reservations (ReservationID)
+GO
+ALTER TABLE dbo.Reservations  WITH CHECK ADD FOREIGN KEY(RoomID)
+REFERENCES dbo.Rooms (RoomID)
+GO
+ALTER TABLE dbo.Reservations  WITH CHECK ADD FOREIGN KEY(UserID)
+REFERENCES dbo.Users (UserID)
+GO
+ALTER TABLE dbo.RoomAmenities  WITH CHECK ADD FOREIGN KEY(AmenityID)
+REFERENCES dbo.Amenities (AmenityID)
+GO
+ALTER TABLE dbo.RoomAmenities  WITH CHECK ADD FOREIGN KEY(RoomTypeID)
+REFERENCES dbo.RoomTypes (RoomTypeID)
+GO
+ALTER TABLE dbo.Rooms  WITH CHECK ADD FOREIGN KEY(CountryID)
+REFERENCES dbo.Countries (CountryID)
+GO
+ALTER TABLE dbo.Rooms  WITH CHECK ADD FOREIGN KEY(HotelID)
+REFERENCES dbo.Hotels (HotelID)
+GO
+ALTER TABLE dbo.Rooms  WITH CHECK ADD FOREIGN KEY(RoomTypeID)
+REFERENCES dbo.RoomTypes (RoomTypeID)
+GO
+ALTER TABLE dbo.States  WITH CHECK ADD FOREIGN KEY(CountryID)
+REFERENCES dbo.Countries (CountryID)
+GO
+ALTER TABLE dbo.Users  WITH CHECK ADD FOREIGN KEY(HotelID)
+REFERENCES dbo.Hotels (HotelID)
+GO
+ALTER TABLE dbo.Users  WITH CHECK ADD FOREIGN KEY(HotelID)
+REFERENCES dbo.Hotels (HotelID)
+GO
+ALTER TABLE dbo.Users  WITH CHECK ADD FOREIGN KEY(HotelID)
+REFERENCES dbo.Hotels (HotelID)
+GO
+ALTER TABLE dbo.Feedbacks  WITH CHECK ADD CHECK  ((Rating>=(1) AND Rating<=(5)))
+GO
+ALTER TABLE dbo.Reservations  WITH CHECK ADD  CONSTRAINT CHK_CheckOutDate CHECK  ((CheckOutDate>CheckInDate))
+GO
+ALTER TABLE dbo.Reservations CHECK CONSTRAINT CHK_CheckOutDate
+GO
+ALTER TABLE dbo.Reservations  WITH CHECK ADD CHECK  ((Status='Cancelled' OR Status='Checked-out' OR Status='Checked-in' OR Status='Reserved'))
+GO
+ALTER TABLE dbo.Rooms  WITH CHECK ADD CHECK  ((Status='Under Maintenance' OR Status='Occupied' OR Status='Available'))
+GO
+ALTER TABLE dbo.Users  WITH CHECK ADD CHECK  ((Role='Customer' OR Role='Receptionist' OR Role='Admin'))
