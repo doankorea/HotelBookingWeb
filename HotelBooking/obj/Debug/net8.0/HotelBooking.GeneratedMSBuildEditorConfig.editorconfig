@@ -38,32 +38,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZG5ld0hvdGVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/AddnewReservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZG5ld1Jlc2VydmF0aW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/Addnewroom.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZG5ld3Jvb20uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/Addnewroomtype.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZG5ld3Jvb210eXBlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/AddnewUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXEFkZG5ld1VzZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/DeleteReservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXERlbGV0ZVJlc2VydmF0aW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/Deleteroom.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXERlbGV0ZXJvb20uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/Deleteroomtype.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXERlbGV0ZXJvb210eXBlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/DeleteUser.cshtml]
@@ -110,10 +86,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFJvb21NYW5hZ2VtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/RoomTypeManagement.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFJvb21UeXBlTWFuYWdlbWVudC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Areas/Admin/Views/HomeAdmin/UserManagement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFkbWluXFVzZXJNYW5hZ2VtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -158,6 +130,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xCb29raW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Booking/Reservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xSZXNlcnZhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Booking/RoomSearch.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xSb29tU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -192,6 +168,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Home/RoomDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSb29tRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Login/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tddnh/HotelBookingWeb/HotelBooking/Views/Rooms/Room.cshtml]

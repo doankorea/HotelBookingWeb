@@ -110,9 +110,23 @@
 
                             <div class="d-flex align-items-center">
 
+                                @if (!string.IsNullOrEmpty(Context.Session.GetString("ID")))
+                                {
+                                    // User is logged in
+                                    <a class="bk-btn me-3" asp-controller="Login" asp-action="Logout">Log Out</a>
+                                }
+                                else
+                                {
+                                    <!-- User is not logged in -->
+                                    <a class="bk-btn" asp-controller="Login" asp-action="LogIn">Log In</a>
 
-                                <a class="bk-btn me-3" asp-controller="Access" asp-action="LogIn">Log In</a>
+                                    <!-- Khoảng trắng giữa -->
+                                    <span style="margin: 0 10px;"></span>
 
+                                    <!-- Admin login button is visible only when user is not logged in -->
+                                    <a class="bk-btn" asp-controller="Access" asp-action="LogIn">Admin</a>
+
+                                }
                                 <div class="language-option me-3">
                                     <img src="/img/flag.jpg" alt="Language flag">
                                     <span>EN <i class="fa fa-angle-down"></i></span>
@@ -148,11 +162,10 @@
                                     <li class="nav-link" data-menu="rooms"><a href="/Rooms/Room">Rooms</a></li>
                                     <li class="nav-link" data-menu="aboutus"><a href="/Home/AboutUs">About Us</a></li>
                                     <li class="nav-link" data-menu="contact"><a href="/Home/Contact">Contact</a></li>
+                                    <li class="nav-link" data-menu="reservation"><a href="/Booking/Reservation">Reservation</a></li>
+
                                 </ul>
                             </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
-                            </div>
                         </div>
                     </div>
                 </div>

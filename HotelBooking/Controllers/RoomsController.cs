@@ -11,11 +11,11 @@ namespace HotelBooking.Controllers
         HotelDbContext db = new HotelDbContext();
 
 
-        [Authentication]
         public IActionResult Room(int? page)
         {
             ViewBag.RoomTypeId = new SelectList(db.RoomTypes.ToList(), "RoomTypeId", "TypeName");
             ViewBag.CountryID = new SelectList(db.Countries.ToList(), "CountryID", "CountryName");
+            ViewBag.HotelID = new SelectList(db.Hotels.ToList(), "HotelID", "HotelName");
             int pageSize = 5;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var lstroom = db.Rooms.ToList();

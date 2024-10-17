@@ -1,4 +1,5 @@
-﻿using HotelBooking.Models;
+﻿using Azure;
+using HotelBooking.Models;
 using HotelBooking.Models_View;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,6 +16,58 @@ namespace HotelBooking.Controllers
           HotelDbContext db=new HotelDbContext();
 
 
+        public IActionResult Reservation(int? page)
+        {
+            // Lấy UserID từ session và kiểm tra session có dữ liệu hay không.
+            string userIDStr = HttpContext.Session.GetString("ID");
+            if (string.IsNullOrEmpty(userIDStr))
+            {
+                // Nếu không có UserID trong session, chuyển hướng về trang đăng nhập hoặc thông báo lỗi.
+                return RedirectToAction("Login", "Login");
+            }
+
+            // Chuyển đổi userID từ string sang int
+            int userID = int.Parse(userIDStr);
+            int pageSize = 5;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+
+            var lstReservation = db.Reservations
+                   .Where(rsr => rsr.UserId == userID)
+                   .ToList();
+            ViewBag.RoomID = new SelectList(db.Rooms.ToList(), "RoomID", "RoomName");
+            ViewBag.User = new SelectList(db.Users.ToList(), "UserID", "Email");
+            PagedList<Reservation> rs = new PagedList<Reservation>(lstReservation.AsQueryable(), pageNumber, pageSize);
+            // Lấy thông tin reservation từ database
+            // Kiểm tra nếu không có kết quả nào được tìm thấy
+            if (rs == null)
+            {
+                // Thực hiện xử lý khi không có reservation, ví dụ trả về một view thông báo không có dữ liệu.
+                return View("NoReservation");
+            }
+
+            // Trả về view với kết quả tìm được
+            return View(rs);
+        }
+
+        [Route("DeleteReservation")]
+        [HttpGet]
+        public async Task<IActionResult> DeleteReservation(int id)
+        {
+            var reservation = await db.Reservations.FindAsync(id);
+            if (reservation == null)
+            {
+                // Nếu không tìm thấy đặt chỗ, có thể chuyển đến một trang thông báo lỗi
+                return NotFound();
+            }
+
+            // Cập nhật trạng thái đặt chỗ thành "canceled"
+            reservation.Status = "Cancelled"; // Giả sử bạn có thuộc tính Status trong model của bạn
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("Reservation");
+        }
 
         public IActionResult Booking(string roomID)
         {
@@ -37,6 +90,7 @@ namespace HotelBooking.Controllers
                 // Lấy danh sách RoomTypes và Countries để đổ vào ViewBag
                 ViewBag.RoomTypes = new SelectList(db.RoomTypes.ToList(), "RoomTypeId", "TypeName");
                 ViewBag.Countries = new SelectList(db.Countries.ToList(), "CountryId", "CountryName");
+                ViewBag.HotelID = new SelectList(db.Hotels.ToList(), "HotelID", "HotelName");
 
                 // Truy vấn để lấy danh sách phòng dựa trên điều kiện tìm kiếm
                 var roomsQuery = (from r in db.Rooms

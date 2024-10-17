@@ -147,6 +147,7 @@ namespace HotelBooking.Controllers
             var lstroom = (from r in _db.Rooms
                               where r.Status == "Available"
                               select r).ToList();
+
             return View(lstroom);
         }
 
