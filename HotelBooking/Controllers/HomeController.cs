@@ -155,7 +155,7 @@ namespace HotelBooking.Controllers
         {
             ViewBag.RoomTypeId = new SelectList(_db.RoomTypes.ToList(), "RoomTypeId", "TypeName");
             ViewBag.CountryID = new SelectList(_db.Countries.ToList(), "CountryID", "CountryName");
-
+            ViewBag.HotelID = new SelectList(_db.Hotels.ToList(), "HotelID", "HotelName");
             var room = _db.Rooms.SingleOrDefault(x => x.RoomName == roomID);
             
             return View(room);
