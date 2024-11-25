@@ -13,7 +13,7 @@ namespace HotelBooking.Controllers
 {
     public class BookingController : Controller
     {
-          HotelDbContext db=new HotelDbContext();
+        HotelDbContext db = new HotelDbContext();
 
 
         public IActionResult Reservation(int? page)
@@ -93,27 +93,38 @@ namespace HotelBooking.Controllers
                 ViewBag.HotelID = new SelectList(db.Hotels.ToList(), "HotelID", "HotelName");
 
                 // Truy vấn để lấy danh sách phòng dựa trên điều kiện tìm kiếm
-                var roomsQuery = (from r in db.Rooms
-                                  join c in db.Countries on r.CountryId equals c.CountryId
-                                  join s in db.States on c.CountryId equals s.CountryId
-                                  join rt in db.RoomTypes on r.RoomTypeId equals rt.RoomTypeId
-                                  join rs in db.Reservations on r.RoomId equals rs.RoomId into roomReservations
-                                  join h in db.Hotels on r.HotelID equals h.HotelId
-                                  from res in roomReservations.DefaultIfEmpty()
-                                  where (string.IsNullOrWhiteSpace(location) || c.CountryName.Contains(location) || s.StateName.Contains(location))
-                                  && (res == null || (!checkin.HasValue || !checkout.HasValue || !(res.CheckInDate < checkout && checkin < res.CheckOutDate)))
-                                  && (string.IsNullOrWhiteSpace(room) || rt.TypeName == room)
-                                  && r.Status == "Available"
-                                  select new RoomSearch
-                                  {
-                                      RoomName = r.RoomName,
-                                      CountryName = c.CountryName,
-                                      StateName = s.StateName,
-                                      Price = r.Price,
-                                      Image = r.Image,
-                                      HotelName= h.HotelName,
-                                     
-                                  }).Distinct();
+                var roomsQuery =
+                    from r in db.Rooms
+                    join c in db.Countries on r.CountryId equals c.CountryId
+                    join s in db.States on c.CountryId equals s.CountryId
+                    join rt in db.RoomTypes on r.RoomTypeId equals rt.RoomTypeId
+                    join h in db.Hotels on r.HotelID equals h.HotelId
+                    join rs in db.Reservations on r.RoomId equals rs.RoomId into roomReservations
+                    from res in roomReservations.DefaultIfEmpty()
+                    where
+                        (string.IsNullOrWhiteSpace(location) ||
+                         c.CountryName.Contains(location) ||
+                         s.StateName.Contains(location))
+                        &&
+                        (res == null ||
+                         (!checkin.HasValue ||
+                          !checkout.HasValue ||
+                          !(res.CheckInDate < checkout && checkin < res.CheckOutDate)))
+                        &&
+                        (string.IsNullOrWhiteSpace(room) || rt.TypeName == room)
+                        &&
+                        r.Status == "Available"
+    select new RoomSearch
+    {
+        RoomName = r.RoomName,
+        CountryName = c.CountryName,
+        StateName = s.StateName,
+        Price = r.Price,
+        Image = r.Image,
+        HotelName = h.HotelName,
+    };
+
+                roomsQuery = roomsQuery.Distinct();
 
                 // Phân trang
                 var pagedRooms = new PagedList<RoomSearch>(roomsQuery.AsQueryable(), pageNumber, pageSize);

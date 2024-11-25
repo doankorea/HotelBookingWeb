@@ -33,6 +33,8 @@ namespace HotelBooking.Controllers
         {
             ViewBag.userName = userName;
             ViewBag.userEmail = userEmail;
+            var totalDays = (checkout - checkin).Days;
+            price = price * totalDays;
             ViewBag.price = price;
             ViewBag.nameRoom = nameRoom;
             ViewBag.description = description;
@@ -64,10 +66,11 @@ namespace HotelBooking.Controllers
         {
             ViewBag.userName = userName;
             ViewBag.userEmail = userEmail;
+            var totalDays = (checkout - checkin).Days;
+            price = price * totalDays;
             ViewBag.price = price;
             ViewBag.nameRoom = nameRoom;
             ViewBag.description = description;
-            Console.WriteLine(checkin.ToString());
 
             var roomid = _db.Rooms.SingleOrDefault(r => r.RoomName == roomID).RoomId;
             int userid = _db.Users.SingleOrDefault(u => u.Email == userEmail).UserId;
