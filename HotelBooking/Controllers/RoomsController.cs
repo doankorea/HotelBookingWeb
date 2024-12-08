@@ -22,5 +22,11 @@ namespace HotelBooking.Controllers
             PagedList<Room> lst = new PagedList<Room>(lstroom, pageNumber, pageSize);
             return View(lst);
         }
+        public IActionResult GetAllCountry()
+        {
+
+            var lstcountry = db.Countries.ToList();
+            return Json(lstcountry);
+        }
     }
 }

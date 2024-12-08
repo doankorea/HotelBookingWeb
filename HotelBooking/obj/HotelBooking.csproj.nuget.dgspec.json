@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {}
+    "C:\\Users\\minhf\\Videos\\bookinghotel\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {
+    "C:\\Users\\minhf\\Videos\\bookinghotel\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
+        "projectUniqueName": "C:\\Users\\minhf\\Videos\\bookinghotel\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
         "projectName": "HotelBooking",
-        "projectPath": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
-        "packagesPath": "C:\\Users\\tddnh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tddnh\\HotelBookingWeb\\HotelBooking\\obj\\",
+        "projectPath": "C:\\Users\\minhf\\Videos\\bookinghotel\\HotelBookingWeb\\HotelBooking\\HotelBooking.csproj",
+        "packagesPath": "C:\\Users\\minhf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\minhf\\Videos\\bookinghotel\\HotelBookingWeb\\HotelBooking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tddnh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\minhf\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.20.1, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -88,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

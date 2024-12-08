@@ -78,13 +78,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="price" value="@Model.Price" disabled>
+                                        <input type="text" class="form-control" name="price" value="@Model.Price" readonly>
                                         <label>Price</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="roomName" value="@Model.RoomName" disabled>
+                                        <input type="text" class="form-control" name="roomName" value="@Model.RoomName" readonly>
                                         <label>Room Name</label>
                                     </div>
                                 </div>
@@ -124,15 +124,26 @@
 
     <script>
         function validateDates() {
+            const currentDate = new Date(); // Lấy ngày giờ hiện tại
             const checkin = new Date(document.getElementById('checkin').value);
             const checkout = new Date(document.getElementById('checkout').value);
+
+            // So sánh ngày giờ check-in với ngày hiện tại
+            if (checkin < currentDate) {
+                alert('Check In date must be today or in the future.');
+                return false; // Ngăn không cho submit form
+            }
+
+            // Kiểm tra ngày giờ check-out lớn hơn check-in
             if (checkout <= checkin) {
                 alert('Check Out date must be after Check In date.');
-                return false; // Prevent form submission
+                return false; // Ngăn không cho submit form
             }
-            return true; // Allow form submission
+
+            return true; // Cho phép submit form
         }
     </script>
+
 </body>
 
 </html>

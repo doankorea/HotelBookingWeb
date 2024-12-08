@@ -3,7 +3,62 @@
     ViewData["Title"] = "Home Page";
     Layout = "Layout";
 }
+<style>
 
+    /* The search field */
+    #myInput {
+        width: 100%;
+        height: 50px;
+        padding: 14px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        transition: all 0.3s ease;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+        /* The search field when it gets focus/clicked on */
+        #myInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        background-color: #f6f6f6;
+        width: 100%;
+        border: 1px solid #ddd;
+        position: absolute;
+        z-index: 1;
+        display: block;
+    }
+
+    #dropdownContent {
+        display: none;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    #dropdownContent.show {
+        display: block;
+    }
+</style>
 
 <!-- Hero Section Begin -->
 <section class="hero-section">
@@ -11,21 +66,24 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="hero-text">
-                    <h1>Sona A Luxury Hotel</h1>
+                    <h1>Lala A Luxury Hotel</h1>
                     <p>
-                        Here are the best hotel booking sites, including recommendations for international
-                        travel and for finding low-priced hotel rooms.
+                        Homestay Thái Linh An hay Lala House Homestay là một chuỗi homestay khá phổ biến tại Việt Nam, đặc biệt là ở các thành phố lớn như Hà Nội và Hồ Chí Minh.
                     </p>
-                    <a href="#" class="primary-btn">Discover Now</a>
+                
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                 <div class="booking-form">
                     <h3>Booking Your Hotel</h3>
                     <form method="GET" action="/Booking/RoomSearch">
-                        <div class="form-group check-location">
-                            <label for="location">Location:</label>
-                            <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+                        <input type="text" class="form-control" placeholder="Choose your location" id="myInput" name="location" onkeyup="filterFunction()" onclick="myFunction()" required>
+                        <div class="dropdown">
+                            <div id="myDropdown" class="dropdown-content">
+                                <div id="dropdownContent">
+                                </div>
+
+                            </div>
                         </div>
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
@@ -67,29 +125,27 @@
             <div class="col-lg-6">
                 <div class="about-text">
                     <div class="section-title">
-                        <span>About Us</span>
-                        <h2>Intercontinental LA <br />Westlake Hotel</h2>
+                        <span>Về chúng tôi</span>
+                        <h2>Lala House <br />Luxury Hotel</h2>
                     </div>
                     <p class="f-para">
-                        Sona.com is a leading online accommodation site. We’re passionate about
-                        travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41
-                        languages.
+                        Lalahouse.com là trang web lưu trú trực tuyến hàng đầu. Chúng tôi đam mê du lịch. Mỗi ngày, chúng tôi truyền cảm hứng và tiếp cận hàng triệu du khách
+                      
                     </p>
                     <p class="s-para">
-                        So when it comes to booking the perfect hotel, vacation rental, resort,
-                        apartment, guest house, or tree house, we’ve got you covered.
+                    Vì vậy, khi nói đến việc đặt phòng khách sạn, khu nghỉ dưỡng, căn hộ hoặc nhà khách chúng tôi sẽ giúp bạn.
                     </p>
-                    <a href="#" class="primary-btn about-btn">Read More</a>
+                   
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="about-pic">
                     <div class="row">
                         <div class="col-sm-6">
-                            <img src="img/about/about-1.jpg" alt="">
+                            <img src="img/about/anhhenho1.jpg" alt="" style="width: 100%; height: 300px;">
                         </div>
                         <div class="col-sm-6">
-                            <img src="img/about/about-2.jpg" alt="">
+                            <img src="img/about/anhhenho3.jpg" alt="" style="width: 100%; height: 300px;">
                         </div>
                     </div>
                 </div>
@@ -104,8 +160,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>What We Do</span>
-                    <h2>Discover Our Services</h2>
+                    <span>Chúng ta sẽ làm gì</span>
+                    <h2> Hãy khám phá dịch vụ của chúng tôi</h2>
                 </div>
             </div>
         </div>
@@ -113,60 +169,56 @@
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-036-parking"></i>
-                    <h4>Travel Plan</h4>
+                    <h4>Kế hoạch Du Lịch</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Chào mừng đến với dịch vụ Kế hoạch Du Lịch của chúng tôi! Đội ngũ chuyên nghiệp của chúng tôi sẽ thiết kế hành trình du lịch riêng biệt, giúp bạn trải nghiệm những điểm đến tuyệt vời nhất. Từ vé máy bay, khách sạn cho đến các tour du lịch và trải nghiệm địa phương, chúng tôi lo liệu tất cả. Chỉ cần cho chúng tôi biết điểm đến mơ ước của bạn, và chúng tôi sẽ chuẩn bị mọi thứ!
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-033-dinner"></i>
-                    <h4>Catering Service</h4>
+                    <h4>
+                        Dịch vụ Tiệc Cung Cấp Thực Phẩm
+                    </h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Thưởng thức trải nghiệm ẩm thực tuyệt vời với dịch vụ Tiệc Cung Cấp Thực Phẩm của chúng tôi. Dù bạn đang tổ chức một buổi tiệc nhỏ hay sự kiện lớn, các đầu bếp của chúng tôi sẽ chuẩn bị thực đơn phù hợp với nhu cầu của bạn. Chúng tôi cung cấp đa dạng các món ăn, lựa chọn chế độ ăn kiêng và phong cách trình bày để sự kiện của bạn thêm phần ấn tượng. Hãy để chúng tôi mang đến món ăn ngon cho sự kiện của bạn!
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-026-bed"></i>
-                    <h4>Babysitting</h4>
+                    <h4>Dịch vụ Giữ Trẻ</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Hãy yên tâm khi sử dụng dịch vụ Giữ Trẻ của chúng tôi. Những người giữ trẻ có kinh nghiệm và được đào tạo sẽ đảm bảo sự an toàn và vui vẻ cho các bé. Dù bạn cần người trông trẻ trong vài giờ hay cả ngày, chúng tôi luôn sẵn sàng hỗ trợ. Các bé sẽ có thời gian vui vẻ trong khi bạn có thể thư giãn hoặc tham gia sự kiện mà không lo lắng.
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-024-towel"></i>
-                    <h4>Laundry</h4>
+                    <h4>Dịch vụ Giặt Là</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Hãy để chúng tôi chăm sóc việc giặt là cho bạn! Dịch vụ Giặt Là của chúng tôi sẽ đảm bảo quần áo của bạn luôn sạch sẽ, thơm tho và phẳng phiu. Chúng tôi nhận giặt nhiều loại vải khác nhau, từ trang phục thường ngày đến những món đồ cần chăm sóc đặc biệt. Cam kết chất lượng và sự tinh tế trong từng chi tiết.
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-044-clock-1"></i>
-                    <h4>Hire Driver</h4>
+                    <h4>Dịch vụ Thuê Tài Xế</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Di chuyển dễ dàng và thoải mái với dịch vụ Thuê Tài Xế của chúng tôi. Tài xế chuyên nghiệp của chúng tôi sẽ sẵn sàng đưa đón bạn đến sân bay, tham quan các địa điểm nổi tiếng, công tác hay đơn giản là đưa bạn đến nơi bạn cần đến. Hãy để chúng tôi lo việc lái xe, còn bạn chỉ cần thư giãn và tận hưởng chuyến đi trong một chiếc xe cao cấp.
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="service-item">
                     <i class="flaticon-012-cocktail"></i>
-                    <h4>Bar & Drink</h4>
+                    <h4>Bar & Đồ Uống</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.
+                        Hãy thư giãn và thưởng thức những món đồ uống yêu thích với dịch vụ Bar & Đồ Uống của chúng tôi. Dù bạn đang tổ chức sự kiện hay tận hưởng một buổi tối bình thường, chúng tôi cung cấp đa dạng các loại đồ uống, từ cocktail đến mocktail, bia và rượu vang cao cấp. Những bartender chuyên nghiệp của chúng tôi sẽ pha chế những ly đồ uống ngon miệng, mang đến không khí tuyệt vời cho buổi tụ họp của bạn.
                     </p>
                 </div>
             </div>
@@ -188,7 +240,7 @@
                                 <h3>@item.RoomName</h3>
 
                                 <!-- Giá phòng -->
-                                <h2>@item.Price$<span>/Pernight</span></h2>
+                                <h2>@item.Price đ<span>/Pernight</span></h2>
 
                                 <!-- Bảng thông tin chi tiết phòng -->
                                 <table>
@@ -223,4 +275,61 @@
         </div>
     </div>
 </section>
+
 <!-- Home Room Section End -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const url = 'https://localhost:7199/Rooms/GetAllCountry';
+        const dropdown = document.getElementById('dropdownContent');
+
+        // Fetch data from the API
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json(); // Parse JSON response
+            })
+            .then(data => {
+                data.forEach(country => {
+                    const a = document.createElement('a');
+                    a.href = `#${country.countryName}`;
+                    a.value = country.countryId || country.countryCode;
+                    a.textContent = country.countryName;
+                    a.addEventListener('click', function () {
+                        fillSearch(country.countryName);
+                    });
+                    dropdown.appendChild(a);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching countries:', error);
+            });
+    });
+    function fillSearch(value) {
+        const input = document.getElementById("myInput");
+        input.value = value;
+        document.getElementById("dropdownContent").classList.remove("show");
+    }
+    function myFunction() {
+        const dropdown = document.getElementById("dropdownContent");
+        dropdown.classList.toggle("show");
+    }
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+</script>

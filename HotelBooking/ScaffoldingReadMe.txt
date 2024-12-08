@@ -9,6 +9,6 @@ Mật khẩu OTP	123456
 admin: admin@hotel.com
 		hashedpassword1
 hotel: adminhotel2@hotel.com
-		hashedpassword1
+		adminhotel2@hotel.com/hashedpassword1
 customer: tddnhny@gmail.com
 		afsdfaf123
