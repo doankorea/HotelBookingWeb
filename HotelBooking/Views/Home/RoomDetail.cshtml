@@ -23,6 +23,62 @@
     </script>
 </head>
 <body>
+    <style>
+
+        /* The search field */
+        #myInput {
+            width: 100%;
+            height: 50px;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+            /* The search field when it gets focus/clicked on */
+            #myInput:focus {
+                outline: 3px solid #ddd;
+            }
+
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            background-color: #f6f6f6;
+            width: 100%;
+            border: 1px solid #ddd;
+            position: absolute;
+            z-index: 1;
+            display: block;
+        }
+
+        #dropdownContent {
+            display: none;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        #dropdownContent.show {
+            display: block;
+        }
+    </style>
     <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -182,7 +238,14 @@
                         <form method="GET" action="/Booking/RoomSearch">
                             <div class="form-group check-location">
                                 <label for="location">Location:</label>
-                                <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+                                <input type="text" class="form-control" placeholder="Enter location.." id="myInput" name="location" onkeyup="filterFunction()" onclick="myFunction()" required>
+                                <div class="dropdown">
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <div id="dropdownContent">
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                             <div class="check-date">
                                 <label for="date-in">Check In:</label>
@@ -215,6 +278,62 @@
 
 
 
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const url = 'https://localhost:7199/Rooms/GetAllCountry';
+            const dropdown = document.getElementById('dropdownContent');
+
+            // Fetch data from the API
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json(); // Parse JSON response
+                })
+                .then(data => {
+                    data.forEach(country => {
+                        const a = document.createElement('a');
+                        a.href = `#${country.countryName}`;
+                        a.value = country.countryId || country.countryCode;
+                        a.textContent = country.countryName;
+                        a.addEventListener('click', function () {
+                            fillSearch(country.countryName);
+                        });
+                        dropdown.appendChild(a);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching countries:', error);
+                });
+        });
+        function fillSearch(value) {
+            const input = document.getElementById("myInput");
+            input.value = value;
+            document.getElementById("dropdownContent").classList.remove("show");
+        }
+        function myFunction() {
+            const dropdown = document.getElementById("dropdownContent");
+            dropdown.classList.toggle("show");
+        }
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
 
 
 

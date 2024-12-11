@@ -25,9 +25,6 @@
                     var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
                     dbContext.Database.ExecuteSqlRaw("EXEC UpdateRoomStatus");
                 }
-
-                // Chờ 24 giờ trước khi thực hiện lần tiếp theo (có thể chỉnh lại thời gian)
-                await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
             }
         }
     }

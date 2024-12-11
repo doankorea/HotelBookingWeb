@@ -1,4 +1,4 @@
-/*  ---------------------------------------------------
+﻿/*  ---------------------------------------------------
     Template Name: Sona
     Description: Sona Hotel Html Template
     Author: Colorlib
