@@ -12,6 +12,7 @@ builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
+builder.Services.AddHostedService<RoomStatusUpdater>();
 
 builder.Services.AddScoped<IVnPayService, VnPayService>();
 var app = builder.Build();

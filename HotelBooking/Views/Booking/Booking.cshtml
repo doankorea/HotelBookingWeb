@@ -66,16 +66,21 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="checkin" name="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" required>
+                                        <input type="text" class="form-control datetimepicker-input" id="checkin" name="checkin"
+                                               placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" required
+                                               data-reserved-dates='@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ReservedDates))'>
                                         <label for="checkin">Check In</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date4" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="checkout" name="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" required>
+                                        <input type="text" class="form-control datetimepicker-input" id="checkout" name="checkout"
+                                               placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" required
+                                               data-reserved-dates='@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ReservedDates))'>
                                         <label for="checkout">Check Out</label>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" name="price" value="@Model.Price" readonly>
@@ -126,12 +131,31 @@
         function validateDates() {
             const checkin = new Date(document.getElementById('checkin').value);
             const checkout = new Date(document.getElementById('checkout').value);
+            const reservedDates = JSON.parse(document.getElementById('checkin').dataset.reservedDates);
+
+            // Kiểm tra ngày checkout phải lớn hơn ngày checkin
             if (checkout <= checkin) {
                 alert('Check Out date must be after Check In date.');
-                return false; // Prevent form submission
+                return false;
             }
-            return true; // Allow form submission
+
+            // Kiểm tra khoảng thời gian đã được đặt
+            for (const dateRange of reservedDates) {
+                const reservedCheckIn = new Date(dateRange.CheckIn);
+                const reservedCheckOut = new Date(dateRange.CheckOut);
+
+                // Nếu khoảng thời gian người dùng chọn giao nhau với khoảng thời gian đã đặt
+                if ((checkin >= reservedCheckIn && checkin < reservedCheckOut) ||
+                    (checkout > reservedCheckIn && checkout <= reservedCheckOut) ||
+                    (checkin <= reservedCheckIn && checkout >= reservedCheckOut)) {
+                    alert('The room is already booked for the selected dates.');
+                    return false; // Ngăn form submit
+                }
+            }
+
+            return true; // Cho phép submit form nếu không có xung đột
         }
+
     </script>
 </body>
 

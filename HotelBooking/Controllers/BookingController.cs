@@ -72,6 +72,12 @@ namespace HotelBooking.Controllers
         public IActionResult Booking(string roomID)
         {
             var room = db.Rooms.SingleOrDefault(r => r.RoomName == roomID);
+            var reservations = db.Reservations
+                         .Where(r => r.RoomId == room.RoomId)
+                         .Select(r => new { r.CheckInDate, r.CheckOutDate })
+                         .ToList();
+
+            ViewBag.ReservedDates = reservations;
             return View(room);
         }
         public IActionResult RoomSearch(int? page, string location, DateTime? checkin, DateTime? checkout, string? room)
