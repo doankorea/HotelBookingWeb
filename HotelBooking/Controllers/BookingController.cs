@@ -76,8 +76,21 @@ namespace HotelBooking.Controllers
                          .Where(r => r.RoomId == room.RoomId)
                          .Select(r => new { r.CheckInDate, r.CheckOutDate })
                          .ToList();
+            var bookedDates = new List<string>();
 
-            ViewBag.ReservedDates = reservations;
+            foreach (var reservation in reservations)
+            {
+                DateTime checkIn = reservation.CheckInDate ?? DateTime.MinValue;
+                DateTime checkOut = reservation.CheckOutDate ?? DateTime.MinValue;
+
+                // Add all dates between check-in and check-out to bookedDates
+                for (var date = checkIn; date <= checkOut; date = date.AddDays(1))
+                {
+                    bookedDates.Add(date.ToString("yyyy-MM-dd"));
+                }
+            }
+
+            ViewBag.ReservedDates = bookedDates;
             return View(room);
         }
         public IActionResult RoomSearch(int? page, string location, DateTime? checkin, DateTime? checkout, string? room)
