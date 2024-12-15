@@ -32,8 +32,10 @@ namespace HotelBooking.Controllers
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
 
             var lstReservation = db.Reservations
-                   .Where(rsr => rsr.UserId == userID)
-                   .ToList();
+    .Where(rsr => rsr.UserId == userID)
+    .OrderByDescending(rsr => rsr.BookingDate)
+    .ToList();
+
             ViewBag.RoomID = new SelectList(db.Rooms.ToList(), "RoomID", "RoomName");
             ViewBag.User = new SelectList(db.Users.ToList(), "UserID", "Email");
             PagedList<Reservation> rs = new PagedList<Reservation>(lstReservation.AsQueryable(), pageNumber, pageSize);
